@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Code Mentor Center</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Search for a mentor</h2>
+    <input placeholder="username" id="username" type="text">
+    <button onclick="getMentorInfo()">Find mentor</button>
+    <p id="mentorInfo"></p>
+
+    <h3>Register as a Mentor</h3>
+    <input placeholder="First Name" id="first-name" type="text">
+    <input placeholder="Last Name" id="last-name" type="text">
+    <input placeholder="username" id="user-name" type="text">
+    <input placeholder="email" id="mentor-email" type="text">
+    <input placeholder="password" id="password" type="text">
+    <button onclick="registerMentor()">Submit</button>
+
+    
+    <h3>Get All Mentors</h3>
+<button onclick="getAllMentors()">Get all</button>
+<p id="mentorresult"></p>
+
+</body>
+</html>
