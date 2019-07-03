@@ -10,22 +10,69 @@ function getMentorInfo() {
 
 
  function displayMentors(mentorData, id) {
-      const listMentors = mentorData.map(element => {
+      const listMentors = mentorData.map((element, index) => {
         return (
-          "<li>"
-          + "Mentor:"
-          + element.username
-          + "|"
-          +"Program Language:"
-          + (element.programlanguage ? element.programlanguage: " " +
-          element.username + "did not add program languages.")
-          +"</li>"
-        )
-      })
-
-        document.getElementById("result").innerHTML
-        = "<ul>" + listMentors.join("\n") + "</ul>" 
+   
         
+        "<table>"
+        +"<caption>"
+        +"Mentor: "
+        + (index + 1)
+        +"</caption>"
+
+        +"<tr>"
+
+        +"<th>"
+
+        +"Username"
+
+        +"</th>"
+
+        +"<th>"
+
+        +"Speaking Language"
+
+        +"</th>"
+
+        +"<th>"
+
+        +"Program Language"
+
+        +"</th>"             
+
+        +"</tr>"
+
+        +"<tr>"
+
++ "<td>"
+
+        + element.username
+
++ "</td>"
+
++ "<td>" 
+
+        + element.speakinglanguage
+
+        + "</td>"
+
+        + "<td>"
+
+        + (element.programlanguage ? element.programlanguage : " " +
+
+    element.itemname + " no content")
+
+        + "</td>"
+
+        + "</tr>"
+
+        + "</table>"
+    )
+  })
+
+  document.getElementById(id).innerHTML 
+= "<ul>" + listMentors.join("\n") + "</ul>"
+
 }
 
 function registerMentor() {
