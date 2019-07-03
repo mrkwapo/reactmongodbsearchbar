@@ -1,13 +1,31 @@
 function getMentorInfo() {
     const input = document.getElementById("username").value;
-    console.log(input);
-    
-    axios.get("/showprofile/" + input)
+    const url = "/api/showprofile/" + input;
+    axios.get(url)
     .then(response => {
-        document.getElementById("mentorInfo").innerHTML= JSON.stringify(response.data);
-        console.log("axios", response.data);
+      displayMentors(response.data, "mentorInfo");
     })
+ }
+ 
 
+
+ function displayMentors(mentorData, id) {
+      const listMentors = mentorData.map(element => {
+        return (
+          "<li>"
+          + "Mentor:"
+          + element.username
+          + "|"
+          +"Program Language:"
+          + (element.programlanguage ? element.programlanguage: " " +
+          element.username + "did not add program languages.")
+          +"</li>"
+        )
+      })
+
+        document.getElementById("result").innerHTML
+        = "<ul>" + listMentors.join("\n") + "</ul>" 
+        
 }
 
 function registerMentor() {
@@ -33,8 +51,8 @@ function registerMentor() {
     }
 
     function getAllMentors(){
-        axios.get("/getallmentors/")
+        axios.get("/api/getallmentors/")
         .then(response=> {
-            document.getElementById("mentorresult").innerHTML= JSON.stringify(response.data)
+          displayMentors(response.data, "result")
         })
     }
